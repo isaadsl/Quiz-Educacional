@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Educacional</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <h2>🧠 Quiz de TI com IA</h2>
+
+        <div class="quiz-progresso-wrapper">
+            <span id="quiz-progresso">Pergunta 1 de 8</span>
+            <div class="barra-progresso">
+                <div class="barra-progresso-fill" id="barra-progresso-fill"></div>
+            </div>
+        </div>
+
+        <p class="quiz-enunciado" id="quiz-enunciado">Carregando...</p>
+
+        <form id="quiz-form">
+            <div class="quiz-alternativas" id="quiz-alternativas"></div>
+            <p id="quiz-feedback"></p>
+            <button type="submit" id="btn-responder" disabled>Responder →</button>
+            <button type="button" id="btn-voltar">← Voltar ao Dashboard</button>
+        </form>
+
+        <div id="quiz-resultado" style="display:none;"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
