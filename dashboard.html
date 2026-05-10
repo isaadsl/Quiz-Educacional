@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Educacional - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+
+        <!-- Header com saudação e logout -->
+        <header class="dash-header">
+            <div class="dash-header-left">
+                <span class="dash-logo">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="white">
+        <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/>
+    </svg>
+</span>
+                <div>
+                    <p class="dash-subtitulo">Portal de Aprendizagem</p>
+                    <h2 class="dash-saudacao">Olá, <span id="nome-usuario">Estudante</span>!</h2>
+                </div>
+            </div>
+            <button id="btn-logout" class="btn-logout" title="Sair">⎋ Sair</button>
+        </header>
+
+        <!-- KPI Cards -->
+        <section class="kpi-grid">
+            <div class="kpi-card kpi-nivel">
+                <div class="kpi-icon">🏆</div>
+                <div class="kpi-info">
+                    <span class="kpi-label">Nível Atual</span>
+                    <span class="kpi-valor" id="kpi-nivel">—</span>
+                </div>
+            </div>
+            <div class="kpi-card kpi-tentativas">
+                <div class="kpi-icon">📝</div>
+                <div class="kpi-info">
+                    <span class="kpi-label">Quizzes Realizados</span>
+                    <span class="kpi-valor" id="kpi-tentativas">—</span>
+                </div>
+            </div>
+            <div class="kpi-card kpi-media">
+                <div class="kpi-icon">🎯</div>
+                <div class="kpi-info">
+                    <span class="kpi-label">Média de Acertos</span>
+                    <span class="kpi-valor" id="kpi-media">—</span>
+                </div>
+            </div>
+            <div class="kpi-card kpi-ultima">
+                <div class="kpi-icon">📅</div>
+                <div class="kpi-info">
+                    <span class="kpi-label">Última Atividade</span>
+                    <span class="kpi-valor kpi-valor-sm" id="kpi-ultima">—</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gráficos -->
+        <section class="graficos-grid">
+            <div class="card grafico-card">
+                <h3>📈 Evolução de Desempenho</h3>
+                <p class="card-descricao">Percentual de acertos nas últimas tentativas</p>
+                <div class="chart-wrapper">
+                    <canvas id="graficoEvolucao"></canvas>
+                </div>
+                <p class="chart-empty" id="evolucao-empty" style="display:none;">Nenhuma tentativa finalizada ainda.</p>
+            </div>
+            <div class="card grafico-card">
+                <h3>📊 Desempenho por Nível</h3>
+                <p class="card-descricao">Média de acertos em cada nível de dificuldade</p>
+                <div class="chart-wrapper">
+                    <canvas id="graficoPorNivel"></canvas>
+                </div>
+                <p class="chart-empty" id="nivel-empty" style="display:none;">Nenhuma tentativa finalizada ainda.</p>
+            </div>
+        </section>
+
+        <!-- Histórico recente -->
+        <section class="card historico-card">
+            <h3>🕒 Histórico Recente</h3>
+            <p class="card-descricao">Suas últimas tentativas de quiz</p>
+            <div class="table-wrapper">
+                <table id="tabela-historico">
+                    <thead>
+                        <tr>
+                            <th>Quiz</th>
+                            <th>Data</th>
+                            <th>Acertos</th>
+                            <th>Resultado</th>
+                            <th>Nível</th>
+                        </tr>
+                    </thead>
+                    <tbody id="historico-tbody">
+                        <tr><td colspan="5" class="table-empty">Carregando...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Ações -->
+        <div class="dash-acoes">
+            <button id="btn-quiz">▶ Iniciar Quiz</button>
+            <button id="btn-resetar" class="btn-perigo">🗑 Resetar Estatísticas</button>
+        </div>
+
+        <!-- Chatbot flutuante -->
+        <div id="chatbot-btn" title="Assistente IA">
+            <span>💬</span>
+        </div>
+
+        <!-- Modal de Proficiência -->
+        <div id="modal-proficiencia" class="modal">
+            <div class="modal-content">
+                <h3>🎓 Quiz de Proficiência Inicial</h3>
+                <p style="color:#64748b; margin-bottom:20px;">Responda para personalizarmos sua trilha de estudos.</p>
+                <form id="form-proficiencia">
+                    <div class="pergunta">
+                        <label>1. O que é Engenharia de Prompt?</label>
+                        <input type="text" name="p1" placeholder="Sua resposta..." required>
+                    </div>
+                    <div class="pergunta">
+                        <label>2. O que é uma interface de usuário?</label>
+                        <input type="text" name="p2" placeholder="Sua resposta..." required>
+                    </div>
+                    <div class="pergunta">
+                        <label>3. Cite uma linguagem de programação.</label>
+                        <input type="text" name="p3" placeholder="Sua resposta..." required>
+                    </div>
+                    <div class="pergunta">
+                        <label>4. O que é prototipagem?</label>
+                        <input type="text" name="p4" placeholder="Sua resposta..." required>
+                    </div>
+                    <button type="submit">Enviar e Continuar →</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
