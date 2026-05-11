@@ -12,3 +12,4 @@ Acompanhe sua evolução no dashboard
 
 Tecnologias utilizadas
 HTML5 CSS3 JavaScript ES6+ SQLite Chart.js
+ Link do projeto: https://isaadsl.github.io/Quiz-Educacional/
